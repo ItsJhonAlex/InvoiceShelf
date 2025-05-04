@@ -69,15 +69,11 @@
         content-box
         overflow-hidden
       "
+      style="background-image: url('/img_login.jpg'); background-size: cover; background-position: center;"
     >
-      <LoginBackground class="absolute h-full w-full" />
-
-      <LoginPlanetCrater
-        class="absolute z-10 top-0 right-0 h-[300px] w-[420px]"
-      />
-
-      <LoginBackgroundOverlay class="absolute h-full w-full right-[7.5%]" />
-
+      <!-- <LoginBackground class="absolute h-full w-full" /> -->
+      <!-- <LoginPlanetCrater class="absolute z-10 top-0 right-0 h-[300px] w-[420px]" /> -->
+      <!-- <LoginBackgroundOverlay class="absolute h-full w-full right-[7.5%]" /> -->
       <div class="md:pl-10 xl:pl-0 relative z-50 w-7/12 xl:w-5/12 xl:w-5/12">
         <h1
           class="
@@ -109,20 +105,7 @@
           {{ pageDescription }}
         </p>
       </div>
-
-      <LoginBottomVector
-        class="
-          absolute
-          z-50
-          w-full
-          bg-no-repeat
-          content-bottom
-          h-[15vw]
-          lg:h-[22vw]
-          right-[32%]
-          bottom-0
-        "
-      />
+      <!-- <LoginBottomVector class="absolute z-50 w-full bg-no-repeat content-bottom h-[15vw] lg:h-[22vw] right-[32%] bottom-0" /> -->
     </div>
   </div>
 </template>
@@ -141,7 +124,7 @@ const pageHeading = computed(() => {
     return window.login_page_heading
   }
 
-  return 'Simple Invoicing for Individuals Small Businesses'
+  return ''
 })
 
 const pageDescription = computed(() => {
@@ -149,7 +132,7 @@ const pageDescription = computed(() => {
     return window.login_page_description
   }
 
-  return 'InvoiceShelf helps you track expenses, record payments & generate beautiful invoices & estimates.'
+  return ''
 })
 
 const copyrightText = computed(() => {
