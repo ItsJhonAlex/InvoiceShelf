@@ -1,5 +1,5 @@
 <template>
-  <div class="grid h-screen grid-cols-12 overflow-y-hidden bg-gray-100">
+  <div class="grid h-screen grid-cols-12 overflow-y-auto bg-gray-100">
     <NotificationRoot />
 
     <div
@@ -8,41 +8,46 @@
         items-center
         justify-center
         w-full
-        max-w-sm
         col-span-12
         p-4
         mx-auto
         text-gray-900
+        sm:p-6
         md:p-8 md:col-span-6
-        lg:col-span-4
+        lg:col-span-5
         flex-2
-        md:pb-48 md:pt-40
+        py-8
+        sm:py-12
+        md:py-16
       "
     >
-      <div class="w-full">
+      <div class="w-full max-w-md">
         <MainLogo
           v-if="!loginPageLogo"
-          class="block w-48 h-auto max-w-full mb-32 text-primary-500"
+          class="block w-36 sm:w-40 md:w-48 h-auto max-w-full mx-auto mb-10 sm:mb-16 md:mb-20 text-primary-500"
         />
 
         <img
           v-else
           :src="loginPageLogo"
-          class="block w-48 h-auto max-w-full mb-32 text-primary-500"
+          class="block w-36 sm:w-40 md:w-48 h-auto max-w-full mx-auto mb-10 sm:mb-16 md:mb-20 text-primary-500"
         />
 
         <router-view />
 
         <div
           class="
-            pt-24
+            pt-8
+            sm:pt-12
+            md:pt-16
             mt-0
-            text-sm
+            text-xs
+            sm:text-sm
             not-italic
             font-medium
             leading-relaxed
-            text-left text-gray-400
-            md:pt-40
+            text-center
+            text-gray-400
           "
         >
           <p class="mb-3">
@@ -61,29 +66,27 @@
         hidden
         w-full
         h-full
-        pl-10
         bg-no-repeat bg-cover
         md:col-span-6
-        lg:col-span-8
+        lg:col-span-7
         md:flex
-        content-box
         overflow-hidden
       "
-      style="background-image: url('/img_login.jpg'); background-size: cover; background-position: center;"
+      style="background-image: url('/img_login.jpg'); background-size: cover; background-position: center center;"
     >
-      <!-- <LoginBackground class="absolute h-full w-full" /> -->
-      <!-- <LoginPlanetCrater class="absolute z-10 top-0 right-0 h-[300px] w-[420px]" /> -->
-      <!-- <LoginBackgroundOverlay class="absolute h-full w-full right-[7.5%]" /> -->
-      <div class="md:pl-10 xl:pl-0 relative z-50 w-7/12 xl:w-5/12 xl:w-5/12">
+      <div class="relative z-50 w-full max-w-lg px-6 md:px-10 lg:px-16">
         <h1
           class="
             hidden
             mb-3
-            text-3xl
-            leading-normal
-            text-left text-white
-            xl:text-5xl xl:leading-tight
-            md:none
+            text-2xl
+            sm:text-3xl
+            lg:text-4xl
+            xl:text-5xl
+            font-bold
+            leading-tight
+            text-center md:text-left
+            text-white
             lg:block
           "
         >
@@ -93,19 +96,20 @@
           class="
             hidden
             text-sm
+            md:text-base
             not-italic
             font-normal
-            leading-normal
-            text-left text-gray-100
-            xl:text-base xl:leading-6
-            md:none
+            leading-relaxed
+            text-center md:text-left
+            text-gray-100
             lg:block
           "
         >
           {{ pageDescription }}
         </p>
       </div>
-      <!-- <LoginBottomVector class="absolute z-50 w-full bg-no-repeat content-bottom h-[15vw] lg:h-[22vw] right-[32%] bottom-0" /> -->
+      <!-- Overlay oscuro para mejor legibilidad del texto -->
+      <div class="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
     </div>
   </div>
 </template>
@@ -152,4 +156,16 @@ const loginPageLogo = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@media (max-height: 700px) {
+  .mb-10 {
+    margin-bottom: 1rem !important;
+  }
+  .py-8 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .pt-8 {
+    padding-top: 0.5rem !important;
+  }
+}
 </style>
